@@ -6,9 +6,9 @@ Created on Mon Oct 16 08:09:56 2023
 """
 
 import streamlit as st
-import plotly.express as px
 import pandas as pd
-from umls_query_functions import create_dataframe,make_radio_graph,plot_semantic_types_plotly
+from umls_query_functions import create_dataframe,plot_histogram,make_radio_graph,plot_semantic_types_plotly
+from config import UMLS_API_KEY
 
 pd.set_option('display.width', 100)
 
@@ -16,7 +16,7 @@ pd.set_option('display.width', 100)
 st.set_page_config(layout="wide")
 
 # Define your UMLS API key, desired parameters, and function to query UMLS
-api_key = "7eaeb202-9f78-47b2-b276-5081d0845752"
+api_key = UMLS_API_KEY
 sabs = "MSH,SNOMEDCT_US,RXNORM,ICD10,CMT,NCIT,LNC,ICD9CM,ICF,NDFRT,MEDCIN,HL7V3.1"  # Comma-separated list of vocabularies
 ttys = "PT,SY,IN"  # Comma-separated list of term types
 
@@ -52,14 +52,7 @@ with st.form("umls_query_form"):
             # Create a Matplotlib figure and plot the histogram in the right column
             with col1:
                 st.write("## Histogram")
-                fig = px.histogram(df, x='Sum_of_Sims', nbins=6)
-                fig.update_layout(
-                    title="Similarity Score Distribution",  # Add a title
-                    xaxis_title="Similarity Score",  # Add x-axis label
-                    yaxis_title="Frequency",  # Add y-axis label
-                    width=500,
-                    height=600
-                )
+                fig = plot_histogram(df)
                 st.plotly_chart(fig)
 
             with col2:
