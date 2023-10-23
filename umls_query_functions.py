@@ -210,6 +210,21 @@ def plot_semantic_types_plotly(df):
     fig.update_layout(showlegend=False)
     
     return fig
+
+def plot_histogram(df):
+    fig = px.histogram(df, x='Sum_of_Sims', nbins=6)
+    
+    # Customizations
+    fig.update_layout(
+        title="Similarity Score Distribution",
+        xaxis_title="Similarity Score",
+        yaxis_title="Frequency",
+        width=500,
+        height=600,
+        font=dict(size=14,),
+    )
+    fig.update_traces(marker_color='darkcyan', marker_line=dict(width=1, color='black'))
+    return fig
     
 @st.cache_data
 def create_dataframe(api_key, input_string, sabs, ttys):
