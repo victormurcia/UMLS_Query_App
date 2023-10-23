@@ -225,7 +225,7 @@ def plot_histogram(df):
     )
     fig.update_traces(marker_color='darkcyan', marker_line=dict(width=1, color='black'))
     return fig
-    
+
 @st.cache_data
 def create_dataframe(api_key, input_string, sabs, ttys):
     # Query the UMLS API
