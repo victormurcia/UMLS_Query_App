@@ -1,10 +1,10 @@
-﻿jellyfish
+jellyfish
 Levenshtein==0.23.0
-matplotlib @ file:///C:/ci/matplotlib-suite_1660169687702/work
+matplotlib
 nltk==3.8.1
-pandas @ file:///C:/b/abs_cdcgk91igc/croots/recipe/pandas_1663772960432/work
-plotly @ file:///C:/ci/plotly_1658142442431/work
+pandas
+plotly
 scikit-learn==1.3.1
-seaborn @ file:///tmp/build/80754af9/seaborn_1629307859561/
+seaborn
 streamlit==1.27.2
 strsim==0.0.
